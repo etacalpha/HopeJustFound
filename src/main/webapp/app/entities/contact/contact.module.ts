@@ -16,7 +16,7 @@ import {
 const ENTITY_STATES = [...contactRoute, ...contactPopupRoute];
 
 @NgModule({
-    imports: [HopeJustFoundSharedModule, HopeJustFoundAdminModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [HopeJustFoundSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         ContactComponent,
         ContactDetailComponent,
@@ -25,6 +25,7 @@ const ENTITY_STATES = [...contactRoute, ...contactPopupRoute];
         ContactDeletePopupComponent
     ],
     entryComponents: [ContactComponent, ContactUpdateComponent, ContactDeleteDialogComponent, ContactDeletePopupComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [ContactComponent, ContactDetailComponent, ContactUpdateComponent, ContactDeleteDialogComponent, ContactDeletePopupComponent]
 })
 export class HopeJustFoundContactModule {}

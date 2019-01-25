@@ -16,7 +16,7 @@ import {
 const ENTITY_STATES = [...donationRoute, ...donationPopupRoute];
 
 @NgModule({
-    imports: [HopeJustFoundSharedModule, HopeJustFoundAdminModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [HopeJustFoundSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         DonationComponent,
         DonationDetailComponent,
@@ -25,6 +25,13 @@ const ENTITY_STATES = [...donationRoute, ...donationPopupRoute];
         DonationDeletePopupComponent
     ],
     entryComponents: [DonationComponent, DonationUpdateComponent, DonationDeleteDialogComponent, DonationDeletePopupComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [
+        DonationComponent,
+        DonationDetailComponent,
+        DonationUpdateComponent,
+        DonationDeleteDialogComponent,
+        DonationDeletePopupComponent
+    ]
 })
 export class HopeJustFoundDonationModule {}

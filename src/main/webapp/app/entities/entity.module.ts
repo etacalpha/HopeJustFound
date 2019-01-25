@@ -18,6 +18,7 @@ import { HopeJustFoundContactModule } from './contact/contact.module';
     declarations: [],
     entryComponents: [],
     providers: [],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [HopeJustFoundStatusModule, HopeJustFoundContactModule, HopeJustFoundDonationModule, HopeJustFoundDonationRequestModule]
 })
 export class HopeJustFoundEntityModule {}
