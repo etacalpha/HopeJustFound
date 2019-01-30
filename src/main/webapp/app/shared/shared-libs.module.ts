@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         CookieModule.forRoot(),
         FontAwesomeModule
     ],
+    declarations: [],
     exports: [FormsModule, CommonModule, NgbModule, NgJhipsterModule, InfiniteScrollModule, FontAwesomeModule]
 })
 export class HopeJustFoundSharedLibsModule {}

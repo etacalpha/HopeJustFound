@@ -3,7 +3,7 @@ import './vendor.ts';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
@@ -17,8 +17,10 @@ import { HopeJustFoundHomeModule } from './home/home.module';
 import { HopeJustFoundAccountModule } from './account/account.module';
 import { HopeJustFoundEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
+import { MapComponent } from '../map/map.component';
 
 @NgModule({
     imports: [
@@ -34,6 +36,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
     providers: [
+        GoogleMapsAPIWrapper,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,

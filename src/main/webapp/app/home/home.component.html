@@ -1,12 +1,12 @@
 <!--Not Signed In-->
 <div id="info" *ngIf="!isAuthenticated()">
 
-    <div id="mission">
+    <div class="statements">
         <h1>Mission Statement</h1>
         <p class="lead"> To connect those with the greatest needs to those with the greatest assets for the betterment of humanity.</p>
     </div>
 
-    <div id="vision">
+    <div class="statements">
         <h1>Vision</h1>
         <p class="lead">To provide an opportunity through an on-line platform for all non-profit organizations to list their needs for donated goods, supplies, volunteers and services to those who are willing to fulfill those needs.</p>
     </div>
@@ -17,17 +17,27 @@
 <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="home">
 
     <div class="leftBox">
-        <jhi-status></jhi-status>
+        <div>
+            <jhi-status></jhi-status>
+        </div>
     </div>
 
 
     <div class="middleBox">
-        <p>This is the middle box</p>
+    <jhi-map></jhi-map>
     </div>
 
 
     <div class="rightBox">
-        <p>This is Information component!!!</p>
+        <div>
+            <h4>Donations Total: <span>{{donationsCount}}</span> </h4>
+        </div>
+        <div>
+            <h4>NonProfits Total: <span>{{nonprofitsCount}}</span> </h4>
+        </div>
+        <div>
+            <h4>Top Donor: <span>{{donorTop}}</span> </h4>
+        </div>
     </div>
 
 </div>

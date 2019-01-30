@@ -3,6 +3,8 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginModalService, Principal, Account } from 'app/core';
+import { DonationService } from 'app/entities/donation';
+import { IDonation } from 'app/shared/model/donation.model';
 
 @Component({
     selector: 'jhi-home',
@@ -12,15 +14,11 @@ import { LoginModalService, Principal, Account } from 'app/core';
 export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
+    donationsCount: number;
+    nonprofitsCount: number;
+    donorTop: string;
 
     constructor(private principal: Principal, private loginModalService: LoginModalService, private eventManager: JhiEventManager) {}
-
-    ngOnInit() {
-        this.principal.identity().then(account => {
-            this.account = account;
-        });
-        this.registerAuthenticationSuccess();
-    }
 
     registerAuthenticationSuccess() {
         this.eventManager.subscribe('authenticationSuccess', message => {
@@ -36,5 +34,12 @@ export class HomeComponent implements OnInit {
 
     login() {
         this.modalRef = this.loginModalService.open();
+    }
+
+    ngOnInit() {
+        this.principal.identity().then(account => {
+            this.account = account;
+        });
+        this.registerAuthenticationSuccess();
     }
 }
